@@ -1,0 +1,24 @@
+function findSecondMax(arr) {
+  if (arr.length < 2) {
+    return "Array should have at least two elements";
+  }
+
+  let max = arr[0];
+  let secondMax = arr[1];
+
+  for (let i = 2; i < arr.length; i++) {
+    if (arr[i] > max) {
+      secondMax = max;
+      max = arr[i];
+    } else if (arr[i] > secondMax && arr[i] !== max) {
+      secondMax = arr[i];
+    }
+  }
+
+  return secondMax;
+}
+
+// Test the function
+console.log(findSecondMax([2, 4, 1, 3, 6])); // Output: 4
+console.log(findSecondMax([9, 7, 5, 3, 1])); // Output: 7
+console.log(findSecondMax([1, 1, 1, 1, 1])); // Output: "Array should have at least two elements"
